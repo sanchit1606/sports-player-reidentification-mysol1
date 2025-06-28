@@ -94,6 +94,9 @@ track_players_with_bytetrack_yolov8.ipynb
 #⚠️ Important: Before running the notebook, make sure to update all the file paths according to your local setup
 
 ```
+> ⚠️ **Note**: After cloning the official ByteTrack repository and attempting to fix probable errors (e.g., deprecated `np.float`, path issues, compatibility mismatches), if the tracking code still doesn't work correctly,  
+> then simply download the pre-fixed `ByteTrack/` folder provided in the **same Google Drive link** as the model weights.  
+> Place it inside the `notebooks/` directory and directly run the `track_players_with_bytetrack_yolov8.ipynb` notebook without further modification.
 
 ---
 
