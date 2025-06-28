@@ -33,7 +33,7 @@ YOLO8l 640 results
 | referee    | 38               | 89                  | 0.956     | 0.921  | 0.963   | 0.679    |
 
 ---
-### Input and Output Format Expectation
+### Input and Output Format:
 Input:
 A clip should be placed inside the clips/ directory.
 All model weights (YOLOv8, FastReID, etc) should be stored in the yolov8-weights/ directory.
