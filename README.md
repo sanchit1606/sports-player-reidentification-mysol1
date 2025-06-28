@@ -94,7 +94,6 @@ track_players_with_bytetrack_yolov8.ipynb
 #⚠️ Important: Before running the notebook, make sure to update all the file paths according to your local setup
 
 ```
----
 
 ---
 
@@ -102,13 +101,13 @@ track_players_with_bytetrack_yolov8.ipynb
 
 ### 🔍 Research & Literature Review  
 To build a robust re-identification pipeline, I began by reviewing existing methods and literature:
-- Examined GitHub repositories like **probablyabdullah/Football-Tracking-with-YOLOv5-Bytetrack**, which demonstrated successful application of ByteTrack to football footage :contentReference[oaicite:1]{index=1}.  
-- Studied tutorials such as “Tracking Football Players with YOLOv5 + ByteTrack” on Medium, offering insights into handling multiple players and ball tracking :contentReference[oaicite:2]{index=2}.  
-- Learned from open-source examples combining YOLOv8 and ByteTrack for player tracking :contentReference[oaicite:3]{index=3}.
+- Examined GitHub repositories like **probablyabdullah/Football-Tracking-with-YOLOv5-Bytetrack**, which demonstrated successful application of ByteTrack to football footage.  
+- Studied tutorials such as “Tracking Football Players with YOLOv5 + ByteTrack” on Medium, offering insights into handling multiple players and ball tracking.
+- Learned from open-source examples combining YOLOv8 and ByteTrack for player tracking.
 
 ### 🎥 Interactive Learning  
-- Watched YouTube walkthroughs on ByteTrack with YOLO (e.g., “ByteTrack Tracking Tutorial”) :contentReference[oaicite:4]{index=4}.  
-- Followed videos demonstrating YOLOv8 + ByteTrack on sports footage :contentReference[oaicite:5]{index=5}.
+- Watched YouTube walkthroughs on ByteTrack with YOLO (e.g., “ByteTrack Tracking Tutorial”)
+- Followed videos demonstrating YOLOv8 + ByteTrack on sports footage.
 
 ### 🧠 Key Insights  
 - Many ReID models focus on pedestrian surveillance or general human tracking—these do not directly translate to sports environments with uniformed players on large fields.  
@@ -122,7 +121,7 @@ To build a robust re-identification pipeline, I began by reviewing existing meth
 Initial runs included extraneous detections (audience, ball boys, referees). This required refining detection thresholds and bounding box filtering to focus solely on on-field players.  
 
 ### ⏱ ID Persistence  
-Implemented custom logic to **retain track IDs for up to 2 seconds** if players temporarily exited the frame (via Kalman filters and delay-based deletion), avoiding unnecessary reassignments.
+Implemented custom logic to **retain track IDs for up to 1-2 seconds** if players temporarily exited the frame (via Kalman filters and delay-based deletion), avoiding unnecessary reassignments.
 
 ### 🧩 Iterative Debugging  
 The core of my week-long effort was iterative problem-solving:
@@ -132,14 +131,13 @@ The core of my week-long effort was iterative problem-solving:
 - Resolving integration issues among modules  
 - Drawing inspiration from open-source precedents and community discussions
 
-This process reflects a real-world, exploratory approach to building a practical sports tracking pipeline—prioritizing robustness and domain adaptation over perfection.
-
+and big thanks to ChatGPT plus too.
 ---
 
 ---
 
 
-## 🔧 Challenges Faced and Their Fixes
+## 🔧 Erros which I remember:
 
 ### 1. ❌ `AttributeError: module 'numpy' has no attribute 'float'`
 
