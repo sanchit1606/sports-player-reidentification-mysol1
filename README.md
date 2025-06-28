@@ -127,6 +127,16 @@ To apply globally:
 - Replaced all `np.float` → `float`  
   (and similarly `np.int` → `int` if needed in other scripts).
 
+---
+
+### 2. ⚠️ Other Unlisted Issues
+
+there were numerous other minor and major issues — ranging from dependency mismatches, path resolution errors, to integration glitches across modules.
+
+> ⚙️ These issues were debugged and resolved iteratively during testing and implementation. They were not explicitly tracked or documented, but addressed as they arose through careful debugging, console tracing, and reference to official documentation or community threads.
+
+---
+
 
 ## Model Insights
 
