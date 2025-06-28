@@ -58,6 +58,8 @@ notebooks/ByteTrack/track_players_with_bytetrack_yolov8.ipynb
 
 #⚠️ Important: Before running the notebook, make sure to update all the file paths according to your local setup
 
+```
+
 ## Model Insights
 
 * **YOLOv8** uses a backbone (CSPDarknet), FPN neck, and detection head.
