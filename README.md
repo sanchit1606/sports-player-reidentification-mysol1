@@ -33,6 +33,14 @@ YOLO8l 640 results
 | referee    | 38               | 89                  | 0.956     | 0.921  | 0.963   | 0.679    |
 
 ---
+### Input and Output Format Expectation
+Input:
+A clip should be placed inside the clips/ directory.
+All model weights (YOLOv8, FastReID, etc) should be stored in the yolov8-weights/ directory.
+
+Output:
+A video file with tracking annotations will be saved in the tracking/ directory.
+It will show consistent IDs for each player across the frames.
 
 ## Table of Contents <!-- omit from toc -->
 
