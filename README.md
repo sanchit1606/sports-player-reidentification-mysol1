@@ -54,7 +54,7 @@ conda activate football
 pip install -r requirements.txt
 
 #After installing the requirements, open the notebook file below:
-notebooks/ByteTrack/track_players_with_bytetrack_yolov8.ipynb
+track_players_with_bytetrack_yolov8.ipynb
 
 #⚠️ Important: Before running the notebook, make sure to update all the file paths according to your local setup
 
