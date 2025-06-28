@@ -83,7 +83,6 @@ track_players_with_bytetrack_yolov8.ipynb
 ## Model Insights
 
 * **YOLOv8** uses a backbone (CSPDarknet), FPN neck, and detection head.
-* **Loss** combines classification, bounding box regression (CIoU), and DFL.
 * **ByteTrack** matches high-confidence detections with Kalman-predicted tracks, then matches unmatched low-confidence detections.
 * **FastReID** uses ResNet-IBN backbone for person appearance embedding.
 
