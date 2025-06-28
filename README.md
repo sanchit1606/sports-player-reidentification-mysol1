@@ -56,6 +56,14 @@ YOLO8l 640 results
 3. **Re-Identification**: *FastReID (currently in experimental stage)* will allow identity recovery if a player re-enters the scene after being occluded or out of frame.
 
 > ⚠️ **Note**: FastReID is not yet fully integrated into the main pipeline. Currently, players who stay out of the frame for more than 2–3 seconds are assigned a new ID upon re-entry, due to the absence of appearance-based ReID.
+>⚠️ Note: The main script is implemented in the track_players_with_bytetrack_yolov8.ipynb notebook.
+Make sure to:
+
+Place your input video files under the clips/ directory
+
+Put all model weights inside the yolov8-weights/ folder
+
+The final output video will be saved in the tracking/ folder
 
 ---
 
