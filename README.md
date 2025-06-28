@@ -94,6 +94,55 @@ track_players_with_bytetrack_yolov8.ipynb
 #⚠️ Important: Before running the notebook, make sure to update all the file paths according to your local setup
 
 ```
+---
+
+## 🚀 Approach & Methodology
+
+### 🔍 Problem Understanding & Literature Review
+To begin with, I studied the problem of player re-identification in sports footage, particularly in football, where the challenge lies in maintaining player identity across frames — even when they exit and re-enter the field of view.
+
+I explored:
+- Previous research papers and GitHub repositories focused on person ReID
+- Open-source tracking pipelines from adjacent domains (e.g., street surveillance, pedestrian ReID)
+- YouTube tutorials and community discussions to understand practical implementation challenges
+
+### 🧠 Challenges in Domain Adaptation
+Most existing models are tailored for:
+- General human ReID (e.g., street surveillance)
+- Well-lit and consistently framed environments (not stadiums with varying camera angles)
+
+Applying these to football footage introduced new complexities:
+- Multiple players with similar uniforms
+- Players going in and out of view
+- Presence of non-players (referees, audience, ball boys)
+
+### 🛠️ Building the Pipeline
+The final pipeline is a combination of:
+- **YOLOv8** for detection of players, ball, and referees
+- **ByteTrack** for short-term tracking and ID assignment
+- **FastReID** for future integration to re-identify players after long occlusions
+
+Early in development, the model wrongly assigned IDs to spectators, ball boys, and referees. To fix this, I refined the detection to only include **on-field players**, improving both accuracy and consistency.
+
+### 🕵️‍♂️ ID Retention Strategy
+One of the practical solutions I implemented was:
+- Maintain the same ID for a player for up to **2 seconds** after disappearance from the frame
+- This avoids unnecessary reassignments on short-term occlusions
+
+This was achieved using a combination of Kalman filter prediction and delayed track deletion logic in ByteTrack.
+
+### 🧪 Iterative Debugging
+The majority of my one-week development time was spent on:
+- Careful debugging of integration between YOLOv8 and ByteTrack
+- Fine-tuning model outputs
+- Filtering invalid detections
+- Brainstorming better matching logic
+
+> 💡 In a real-world simulation setup, handling real-time ID preservation without ground-truth labels required creative use of existing tools and adaptation to the football domain.
+
+---
+
+
 ## 🔧 Challenges Faced and Their Fixes
 
 ### 1. ❌ `AttributeError: module 'numpy' has no attribute 'float'`
