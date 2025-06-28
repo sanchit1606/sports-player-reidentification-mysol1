@@ -96,49 +96,45 @@ track_players_with_bytetrack_yolov8.ipynb
 ```
 ---
 
+---
+
 ## 🚀 Approach & Methodology
 
-### 🔍 Problem Understanding & Literature Review
-To begin with, I studied the problem of player re-identification in sports footage, particularly in football, where the challenge lies in maintaining player identity across frames — even when they exit and re-enter the field of view.
+### 🔍 Research & Literature Review  
+To build a robust re-identification pipeline, I began by reviewing existing methods and literature:
+- Examined GitHub repositories like **probablyabdullah/Football-Tracking-with-YOLOv5-Bytetrack**, which demonstrated successful application of ByteTrack to football footage :contentReference[oaicite:1]{index=1}.  
+- Studied tutorials such as “Tracking Football Players with YOLOv5 + ByteTrack” on Medium, offering insights into handling multiple players and ball tracking :contentReference[oaicite:2]{index=2}.  
+- Learned from open-source examples combining YOLOv8 and ByteTrack for player tracking :contentReference[oaicite:3]{index=3}.
 
-I explored:
-- Previous research papers and GitHub repositories focused on person ReID
-- Open-source tracking pipelines from adjacent domains (e.g., street surveillance, pedestrian ReID)
-- YouTube tutorials and community discussions to understand practical implementation challenges
+### 🎥 Interactive Learning  
+- Watched YouTube walkthroughs on ByteTrack with YOLO (e.g., “ByteTrack Tracking Tutorial”) :contentReference[oaicite:4]{index=4}.  
+- Followed videos demonstrating YOLOv8 + ByteTrack on sports footage :contentReference[oaicite:5]{index=5}.
 
-### 🧠 Challenges in Domain Adaptation
-Most existing models are tailored for:
-- General human ReID (e.g., street surveillance)
-- Well-lit and consistently framed environments (not stadiums with varying camera angles)
+### 🧠 Key Insights  
+- Many ReID models focus on pedestrian surveillance or general human tracking—these do not directly translate to sports environments with uniformed players on large fields.  
+- Existing tutorials showed pipelines for pedestrian or broadcast footage but had to be adapted for football-specific constraints.
 
-Applying these to football footage introduced new complexities:
-- Multiple players with similar uniforms
-- Players going in and out of view
-- Presence of non-players (referees, audience, ball boys)
+### 🛠 Pipeline Development  
+1. **Detection**: Used YOLOv8 trained on Roboflow’s football dataset.  
+2. **Tracking**: Integrated ByteTrack to handle both high and low confidence detections (inspired by ByteTrack architecture) :contentReference[oaicite:6]{index=6}.  
+3. **Re-identification (Experimental)**: Selected FastReID (ResNet‑IBN backbone) to enable appearance-based matching after extended occlusion.
 
-### 🛠️ Building the Pipeline
-The final pipeline is a combination of:
-- **YOLOv8** for detection of players, ball, and referees
-- **ByteTrack** for short-term tracking and ID assignment
-- **FastReID** for future integration to re-identify players after long occlusions
+Initial runs included extraneous detections (audience, ball boys, referees). This required refining detection thresholds and bounding box filtering to focus solely on on-field players.  
 
-Early in development, the model wrongly assigned IDs to spectators, ball boys, and referees. To fix this, I refined the detection to only include **on-field players**, improving both accuracy and consistency.
+### ⏱ ID Persistence  
+Implemented custom logic to **retain track IDs for up to 2 seconds** if players temporarily exited the frame (via Kalman filters and delay-based deletion), avoiding unnecessary reassignments.
 
-### 🕵️‍♂️ ID Retention Strategy
-One of the practical solutions I implemented was:
-- Maintain the same ID for a player for up to **2 seconds** after disappearance from the frame
-- This avoids unnecessary reassignments on short-term occlusions
+### 🧩 Iterative Debugging  
+The core of my week-long effort was iterative problem-solving:
+- Fine-tuning detection thresholds and track buffering  
+- Filtering unwanted detections  
+- Adjusting ID retention settings  
+- Resolving integration issues among modules  
+- Drawing inspiration from open-source precedents and community discussions
 
-This was achieved using a combination of Kalman filter prediction and delayed track deletion logic in ByteTrack.
+This process reflects a real-world, exploratory approach to building a practical sports tracking pipeline—prioritizing robustness and domain adaptation over perfection.
 
-### 🧪 Iterative Debugging
-The majority of my one-week development time was spent on:
-- Careful debugging of integration between YOLOv8 and ByteTrack
-- Fine-tuning model outputs
-- Filtering invalid detections
-- Brainstorming better matching logic
-
-> 💡 In a real-world simulation setup, handling real-time ID preservation without ground-truth labels required creative use of existing tools and adaptation to the football domain.
+---
 
 ---
 
