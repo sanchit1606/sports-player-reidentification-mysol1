@@ -94,6 +94,39 @@ track_players_with_bytetrack_yolov8.ipynb
 #⚠️ Important: Before running the notebook, make sure to update all the file paths according to your local setup
 
 ```
+## 🔧 Challenges Faced and Their Fixes
+
+### 1. ❌ `AttributeError: module 'numpy' has no attribute 'float'`
+
+**📌 Description:**  
+While running the tracking pipeline using ByteTrack, the following error occurred:
+
+```
+AttributeError: module 'numpy' has no attribute 'float'
+```
+
+This is due to the use of `np.float`, which has been deprecated in NumPy version 1.20 and removed in later versions.
+
+**🧠 Root Cause:**  
+`np.float` was a deprecated alias for the built-in Python `float`. Using it in modern versions of NumPy (≥ 1.24) results in this error. The usage was common in older tracking implementations like ByteTrack.
+
+**✅ Solution:**  
+Replaced all instances of `np.float` with Python's built-in `float`. This fix is backward-compatible and safe across NumPy versions.
+
+**🔧 Fix Example (global):**
+```python
+# ❌ Original (Deprecated)
+value = np.float(0.5)
+
+# ✅ Fixed
+value = float(0.5)
+```
+
+To apply globally:
+- Used VS Code’s Find & Replace across the `yolox/` or `tracker/` directory.
+- Replaced all `np.float` → `float`  
+  (and similarly `np.int` → `int` if needed in other scripts).
+
 
 ## Model Insights
 
