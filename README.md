@@ -12,6 +12,35 @@ YOLOv8 was trained on [football-players-detection](https://universe.roboflow.com
 
 📦 **Download pretrained weights**: [Google Drive Link](https://drive.google.com/drive/folders/1ssaMH89UP9WGeZU_E9rQNzYxasQ6yp8t?usp=sharing)
 
+YOLO8m 640 results
+
+| class      | Number of images | Number of instances | Precision | Recall | mAP50 | mAP50-95 |
+|------------|------------------|---------------------|-----------|--------|---------|----------|
+| all        | 38               | 905                 | 0.945     | 0.755  | 0.832   | 0.585    |
+| ball       | 38               | 35                  | 1         | 0.206  | 0.427   | 0.164    |
+| goalkeeper | 38               | 27                  | 0.888     | 0.963  | 0.972   | 0.742    |
+| player     | 38               | 754                 | 0.953     | 0.964  | 0.986   | 0.796    |
+| referee    | 38               | 89                  | 0.938     | 0.888  | 0.942   | 0.637    |
+
+YOLO8l 640 results
+
+| class      | Number of images | Number of instances | Precision | Recall | mAP50 | mAP50-95 |
+|------------|------------------|---------------------|-----------|--------|---------|----------|
+| all        | 38               | 905                 | 0.975     | 0.754  | 0.859   | 0.613    |
+| ball       | 38               | 35                  | 1         | 0.215  | 0.51    | 0.206    |
+| goalkeeper | 38               | 27                  | 0.961     | 0.92   | 0.981   | 0.753    |
+| player     | 38               | 754                 | 0.981     | 0.958  | 0.983   | 0.814    |
+| referee    | 38               | 89                  | 0.956     | 0.921  | 0.963   | 0.679    |
+
+Yolov5m 1280 results
+
+| class      | Number of images | Number of instances | Precision | Recall | mAP50 | mAP50-95 |
+|------------|----|-----|-------|-------|-------|-------|
+| all        | 38 | 905 | 0.909 | 0.862 | 0.892 | 0.675 |
+| ball       | 38 | 35  | 0.953 | **0.58**  | **0.653** | **0.335** |
+| goalkeeper | 38 | 27  | 0.803 | 0.908 | 0.954 | 0.786 |
+| player     | 38 | 754 | 0.978 | 0.983 | 0.993 | 0.864 |
+| referee    | 38 | 89  | 0.902 | 0.978 | 0.969 | 0.717 |
 ---
 
 ## Table of Contents <!-- omit from toc -->
