@@ -16,10 +16,10 @@ YOLOv8 was trained on [football-players-detection](https://universe.roboflow.com
 
 ## Table of Contents <!-- omit from toc -->
 
-- [Pipeline Overview](#pipeline-overview)
-- [Installation](#installation)
-- [Folder Structure](#folder-structure)
-- [Model Insights](#model-insights)
+* [Pipeline Overview](#pipeline-overview)
+* [Installation](#installation)
+* [Folder Structure](#folder-structure)
+* [Model Insights](#model-insights)
   - [YOLOv8 Explained](#yolov8-explained)
     - [The Backbone](#the-backbone)
     - [The Neck](#the-neck)
@@ -52,7 +52,6 @@ conda activate football
 
 # Install project dependencies
 pip install -r requirements.txt
-
 
 #After installing the requirements, open the notebook file below:
 notebooks/ByteTrack/track_players_with_bytetrack_yolov8.ipynb
